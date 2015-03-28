@@ -35,6 +35,8 @@ exec_always --no-startup-id setxkbmap -model pc105 -layout us -variant altgr-int
 # exec --no-startup-id syndaemon -i 0.8 -d
 # Network Manager
 exec --no-startup-id nm-applet
+# Owncloud Client
+exec --no-startup-id owncloud
 # MouseKey 3
 # exec_always --no-startup-id xbindkeys -f ~/.xbindkeysrc
 # Swich numlock on
