@@ -18,7 +18,6 @@ set $mod Mod4
 # Set modifier to alt key
 # set $mod Mod1
 
-
 # Execute commands at startup
 # --------------------------------------------------------------------------- #
 # Put the screens where they belong
@@ -54,8 +53,12 @@ exec --no-startup-id parcellite
 # Run gnomme auto panel to control audio
 #exec --no-startup-id gnome-sound-applet
 # Start a terminal in ~/templates and move it to the scratchpad
-exec --no-startup-id terminator -T "Scratchpad Terminal" --working-dir=~/
-for_window [class="^Terminator$" title="Scratchpad Terminal"] move scratchpad
+# exec --no-startup-id terminator -T "Scratchpad" --working-dir=~/
+exec --no-startup-id terminator -T "Scratchpad F1" --working-dir=~/
+exec --no-startup-id terminator -T "Scratchpad F2" --working-dir=~/
+exec --no-startup-id terminator -T "Scratchpad F3" --working-dir=~/
+exec --no-startup-id terminator -T "Scratchpad F4" --working-dir=~/
+for_window [class="^Terminator$" title="^Scratchpad"] move scratchpad
 # Start BOINC Manager
 # exec --no-startup-id sleep 30s && boincmgr -a -n 127.0.0.1 -e /var/lib/boinc-client
 # Execute the scipts we need to get some default byobu sessions running
@@ -102,7 +105,7 @@ for_window [instance="boincmgr" title="BOINC Manager"] move workspace boinc
 # Mendeley
 for_window [instance="mendeleydesktop" title="^Mendeley Desktop$"] move workspace reading
 # Calibre
-for_window [instance="calibre-gui" title="^calibre"] move workspace reading
+# for_window [instance="calibre-gui" title="^calibre"] move workspace reading
 # Browser
 # for_window [window_role="browser"] move workspace browser
 for_window [title="^Pocket" window_role="pop-up"] floating enable, border none
@@ -146,7 +149,7 @@ for_window [class="Xfce4-mixer"] floating enable, move position center
 font pango:DejaVu Sans Mono 10
 
 # Suspend via alt+ctrl+shift+l
-#bindsym Mod1+ctrl+shift+l exec i3lock --color=404040 && sudo pm-suspend
+# bindsym Mod1+ctrl+shift+l exec i3lock --color=404040 && sudo pm-suspend
 # bindsym Mod1+ctrl+shift+l exec i3lock -d -i /home/mt/Dropbox/Photos/Wallpapers\ and\ Screensaver/Widescreen/Flowing\ Chemistry.png && sudo pm-suspend
 # lock via alt+ctrl+l
 #bindsym Mod1+ctrl+l exec i3lock --color=404040
@@ -179,6 +182,10 @@ bindsym $mod+Shift+minus move scratchpad
 
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
+bindsym $mod+F1 [class="^Terminator$" title="^Scratchpad F1"] scratchpad show
+bindsym $mod+F2 [class="^Terminator$" title="^Scratchpad F2"] scratchpad show
+bindsym $mod+F3 [class="^Terminator$" title="^Scratchpad F3"] scratchpad show
+bindsym $mod+F4 [class="^Terminator$" title="^Scratchpad F4"] scratchpad show
 
 # change focus
 bindsym $mod+h focus left
@@ -202,8 +209,8 @@ bindsym $mod+Shift+l move right
 bindsym $mod+Shift+Left move workspace to output left
 bindsym $mod+Shift+Right move workspace to output right
 # use the cursor keys to to swap workspaces
-#bindsym $mod+Shift+Down move down
-#bindsym $mod+Shift+Up move up
+# bindsym $mod+Shift+Down move down
+# bindsym $mod+Shift+Up move up
 
 # split in horizontal orientation
 bindsym $mod+b split h
@@ -221,6 +228,9 @@ bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
+
+# center the current floating window
+bindsym $mod+c move position center
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -279,74 +289,77 @@ bindsym $mod+Shift+s exec "i3-nagbar -t warning -m 'Do you really want to shutdo
 # resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
 mode "resize" {
-# These bindings trigger as soon as you enter the resize mode
-
-# Pressing left will shrink the window’s width.
-# Pressing right will grow the window’s width.
-# Pressing up will shrink the window’s height.
-# Pressing down will grow the window’s height.
+  # These bindings trigger as soon as you enter the resize mode
+  
+  # Pressing h will shrink the window’s width.
+  # Pressing j will grow the window’s width.
+  # Pressing k will shrink the window’s height.
+  # Pressing l will grow the window’s height.
   bindsym h resize shrink width 10 px or 10 ppt
-    bindsym j resize grow height 10 px or 10 ppt
-    bindsym k resize shrink height 10 px or 10 ppt
-    bindsym l resize grow width 10 px or 10 ppt
-
-# same bindings, but for the arrow keys
-    bindsym Left resize shrink width 10 px or 10 ppt
-    bindsym Down resize grow height 10 px or 10 ppt
-    bindsym Up resize shrink height 10 px or 10 ppt
-    bindsym Right resize grow width 10 px or 10 ppt
-
-# back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+  bindsym j resize grow height 10 px or 10 ppt
+  bindsym k resize shrink height 10 px or 10 ppt
+  bindsym l resize grow width 10 px or 10 ppt
+  
+  # same bindings, but for the arrow keys
+  bindsym Left resize shrink width 75 px or 75 ppt
+  bindsym Down resize grow height 75 px or 75 ppt
+  bindsym Up resize shrink height 75 px or 75 ppt
+  bindsym Right resize grow width 75 px or 75 ppt
+  
+  # c will center the window
+  bindsym c move position center
+  
+  # back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
 }
 
 # i3 input mode
 bindsym $mod+BackSpace mode "command"
 mode "command" {
-# These bindings trigger as soon as you enter the input mode
-
-# Open a plain input command line
+  # These bindings trigger as soon as you enter the input mode
+  
+  # Open a plain input command line
   bindsym i exec i3-input
-
-# Rename the current workspace
-    bindsym r exec i3-input -F 'rename workspace to %s' -P 'New name: '; mode "default"
-
-# Move workspace to output
-    bindsym m exec i3-input -F 'move workspace to output %s' -P 'left/right: '; mode "default"
-
-# Move current windo to workspace
-    bindsym Shift+m exec i3-input -F 'move workspace %s' -P 'Name of target workspace: ';
-
-# Go to workspace by name
+  
+  # Rename the current workspace
+  bindsym r exec i3-input -F 'rename workspace to %s' -P 'New name: '; mode "default"
+  
+  # Move workspace to output
+  bindsym m exec i3-input -F 'move workspace to output %s' -P 'left/right: '; mode "default"
+  
+  # Move current window to workspace
+  bindsym Shift+m exec i3-input -F 'move workspace %s' -P 'Name of target workspace: ';
+  
+  # Go to workspace by name
   bindsym g exec i3-input -F 'workspace %s' -P 'Go to workspace: '; mode "default"
-
-# back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+  
+  # back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
 }
 
 # i3 media mode
 bindsym $mod+m mode "media"
 mode "media" {
-# These bindings trigger as soon as you enter the media mode
+  # These bindings trigger as soon as you enter the media mode
 
-# LowerVolume
+  # LowerVolume
   bindsym 1 exec --no-startup-id amixer set Master 2dB-
-# RaiseVolume
-    bindsym 2 exec --no-startup-id amixer set Master 2dB+
-# MuteVolume
-    bindsym 3 exec --no-startup-id amixer set Master toggle
-# Play/Pause
-    bindsym 4 exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
-# Reverse
-    bindsym 5 exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
-# Forward
-    bindsym 6 exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+  # RaiseVolume
+  bindsym 2 exec --no-startup-id amixer set Master 2dB+
+  # MuteVolume
+  bindsym 3 exec --no-startup-id amixer set Master toggle
+  # Play/Pause
+  bindsym 4 exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+  # Reverse
+  bindsym 5 exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+  # Forward
+  bindsym 6 exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
 
-# back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+  # back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
 }
 
 # i3 pass-through mode
