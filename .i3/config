@@ -290,7 +290,7 @@ bindsym $mod+Shift+s exec "i3-nagbar -t warning -m 'Do you really want to shutdo
 bindsym $mod+r mode "resize"
 mode "resize" {
   # These bindings trigger as soon as you enter the resize mode
-  
+
   # Pressing h will shrink the window’s width.
   # Pressing j will grow the window’s width.
   # Pressing k will shrink the window’s height.
@@ -299,16 +299,16 @@ mode "resize" {
   bindsym j resize grow height 10 px or 10 ppt
   bindsym k resize shrink height 10 px or 10 ppt
   bindsym l resize grow width 10 px or 10 ppt
-  
+
   # same bindings, but for the arrow keys
   bindsym Left resize shrink width 75 px or 75 ppt
   bindsym Down resize grow height 75 px or 75 ppt
   bindsym Up resize shrink height 75 px or 75 ppt
   bindsym Right resize grow width 75 px or 75 ppt
-  
+
   # c will center the window
   bindsym c move position center
-  
+
   # back to normal: Enter or Escape
   bindsym Return mode "default"
   bindsym Escape mode "default"
@@ -318,22 +318,22 @@ mode "resize" {
 bindsym $mod+BackSpace mode "command"
 mode "command" {
   # These bindings trigger as soon as you enter the input mode
-  
+
   # Open a plain input command line
   bindsym i exec i3-input
-  
+
   # Rename the current workspace
   bindsym r exec i3-input -F 'rename workspace to %s' -P 'New name: '; mode "default"
-  
+
   # Move workspace to output
   bindsym m exec i3-input -F 'move workspace to output %s' -P 'left/right: '; mode "default"
-  
+
   # Move current window to workspace
   bindsym Shift+m exec i3-input -F 'move workspace %s' -P 'Name of target workspace: ';
-  
+
   # Go to workspace by name
   bindsym g exec i3-input -F 'workspace %s' -P 'Go to workspace: '; mode "default"
-  
+
   # back to normal: Enter or Escape
   bindsym Return mode "default"
   bindsym Escape mode "default"
@@ -356,6 +356,26 @@ mode "media" {
   bindsym 5 exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
   # Forward
   bindsym 6 exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+
+  # back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+# i3 brightness mode
+bindsym $mod+x mode "brightness"
+mode "brightness" {
+  # These bindings trigger as soon as you enter the brightnes mode
+  bindsym 1 exec --no-startup-id xbacklight =10  ; mode "default"
+  bindsym 2 exec --no-startup-id xbacklight =20  ; mode "default"
+  bindsym 3 exec --no-startup-id xbacklight =30  ; mode "default"
+  bindsym 4 exec --no-startup-id xbacklight =40  ; mode "default"
+  bindsym 5 exec --no-startup-id xbacklight =50  ; mode "default"
+  bindsym 6 exec --no-startup-id xbacklight =60  ; mode "default"
+  bindsym 7 exec --no-startup-id xbacklight =70  ; mode "default"
+  bindsym 8 exec --no-startup-id xbacklight =80  ; mode "default"
+  bindsym 9 exec --no-startup-id xbacklight =90  ; mode "default"
+  bindsym 0 exec --no-startup-id xbacklight =100 ; mode "default"
 
   # back to normal: Enter or Escape
   bindsym Return mode "default"
