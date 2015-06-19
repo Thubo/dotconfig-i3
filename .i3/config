@@ -12,6 +12,9 @@
 # Hide borders at the edge of the screen
 hide_edge_borders vertical
 
+new_window 1pixel
+new_float 1pixel
+
 # Set modifier to win key
 set $mod Mod4
 
@@ -19,15 +22,28 @@ set $mod Mod4
 # set $mod Mod1
 
 # Execute commands at startup
+# Requires
+#  * dropbox
+#  * nitrogen
+#  * nm-applet
+#  * numlockx
+#  * owncloud
+#  * parcellite
+#  * synapse
+#  * xautolock
+#  * rofi
+#
 # --------------------------------------------------------------------------- #
 # Put the screens where they belong
 exec_always --no-startup-id ~/.i3/xrandr.sh
 # Start rofi
-exec_always --no-startup-id pkill rofi; rofi -key F12
-# Setup Screen
+# Switch between modi: Shift-Right
+exec_always --no-startup-id pkill rofi; rofi -key-window F12
+  # Setup Screen
 # exec_always --no-startup-id xrandr --output eDP1 --auto --primary --output HDMI1 --auto --right-of eDP1
 # Set Background to black
-exec_always --no-startup-id xsetroot -solid "#000000"
+# exec_always --no-startup-id xsetroot -solid "#000000"
+exec_always --no-startup-id sleep 2s && nitrogen --restore
 # Set Keyboard to us and bind esc to caps
 exec_always --no-startup-id setxkbmap -model pc105 -layout us -variant altgr-intl -option caps:escape
 # Start daemon for touchpad control
@@ -45,8 +61,9 @@ exec --no-startup-id synapse -s
 # Start Dropbox
 exec --no-startup-id dropbox start
 # Run XAutoLock
-exec --no-startup-id xautolock -locker 'i3lock -d -i /home/mt/Dropbox/Photos/Wallpapers\ and\ Screensaver/Widescreen/Flowing\ Chemistry.png' -time 15
-# Run parcellite
+# exec --no-startup-id xautolock -locker 'i3lock -d -i /home/mt/Dropbox/Photos/Wallpapers\ and\ Screensaver/Widescreen/Flowing\ Chemistry.png' -time 15
+exec --no-startup-id xautolock -locker 'i3lock -d -c 909090' -time 15
+  # Run parcellite
 exec --no-startup-id parcellite
 # Run padevchooser to control audio
 #exec --no-startup-id padevchooser
@@ -73,7 +90,7 @@ for_window [class="^Terminator$" title="^Scratchpad"] move scratchpad
 # Rerun the xrandr script
 bindsym Mod1+ctrl+x exec ~/Templates/scripts/src/xrandr.sh
 # Show the current windows properties in the i3-nagbar
-# bindsym Shift+Print exec i3-nagbar -t warning -m "`~/templates/src/snap.sh`"
+ bindsym Shift+Print exec i3-nagbar -t warning -m "`~/templates/src/snap.sh`"
 # bindsym Print exec ~/templates/src/snap.sh | tr -d '\n' | xclip -selection p
 # Swapping workspaces
 # bindsym $mod+Mod1+s exec /home/mt/Templates/dotconfigs/i3/quickswitch-for-i3/quickswitch.py
@@ -149,10 +166,8 @@ for_window [class="Xfce4-mixer"] floating enable, move position center
 font pango:DejaVu Sans Mono 10
 
 # Suspend via alt+ctrl+shift+l
-# bindsym Mod1+ctrl+shift+l exec i3lock --color=404040 && sudo pm-suspend
-# bindsym Mod1+ctrl+shift+l exec i3lock -d -i /home/mt/Dropbox/Photos/Wallpapers\ and\ Screensaver/Widescreen/Flowing\ Chemistry.png && sudo pm-suspend
+bindsym Mod1+ctrl+shift+l exec xautolock -locknow && sudo pm-suspend
 # lock via alt+ctrl+l
-#bindsym Mod1+ctrl+l exec i3lock --color=404040
 bindsym Mod1+ctrl+l exec xautolock -locknow
 
 # Reload keyboard layout
