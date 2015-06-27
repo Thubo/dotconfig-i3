@@ -29,7 +29,6 @@ set $mod Mod4
 #  * numlockx
 #  * owncloud
 #  * parcellite
-#  * synapse
 #  * xautolock
 #  * rofi
 #
@@ -38,7 +37,7 @@ set $mod Mod4
 exec_always --no-startup-id ~/.i3/xrandr.sh
 # Start rofi
 # Switch between modi: Shift-Right
-exec_always --no-startup-id pkill rofi; rofi -key-window F12
+exec_always --no-startup-id pkill rofi; rofi -key-run alt-space
   # Setup Screen
 # exec_always --no-startup-id xrandr --output eDP1 --auto --primary --output HDMI1 --auto --right-of eDP1
 # Set Background to black
@@ -61,8 +60,8 @@ exec --no-startup-id synapse -s
 # Start Dropbox
 exec --no-startup-id dropbox start
 # Run XAutoLock
-# exec --no-startup-id xautolock -locker 'i3lock -d -i /home/mt/Dropbox/Photos/Wallpapers\ and\ Screensaver/Widescreen/Flowing\ Chemistry.png' -time 15
-exec --no-startup-id xautolock -locker 'i3lock -d -c 909090' -time 15
+# exec --no-startup-id xautolock -locker 'i3lock -d -c 909090' -time 15
+exec --no-startup-id xautolock -locker 'i3lock -d -i /home/mt/.i3/lockscreen.png' -time 15
   # Run parcellite
 exec --no-startup-id parcellite
 # Run padevchooser to control audio
