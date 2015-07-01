@@ -9,8 +9,8 @@ else
   if [[ $HOSTNAME == "X230" ]]; then
     xrandr \
       --output LVDS1 --off \
-      --output HDMI3 --auto --rotate normal --primary \
-      --output HDMI2 --auto --rotate left --right-of HDMI3
+      --output HDMI2 --auto --rotate normal --primary \
+      --output HDMI3 --auto --rotate left --right-of HDMI2
   elif [[ $HOSTNAME == "eyrie" ]]; then
     xrandr \
       --output eDP1 --auto --primary \
