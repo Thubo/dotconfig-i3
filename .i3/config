@@ -122,7 +122,7 @@ for_window [class="Xfce4-mixer"] floating enable, move position center
 font pango:DejaVu Sans Mono 10
 
 # Suspend via alt+ctrl+shift+l
-bindsym Mod1+ctrl+shift+l exec xautolock -locknow && sudo pm-suspend
+bindsym Mod1+ctrl+shift+l exec xautolock -locknow && systemctl suspend
 # lock via alt+ctrl+l
 bindsym Mod1+ctrl+l exec xautolock -locknow
 
