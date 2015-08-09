@@ -50,7 +50,7 @@ exec --no-startup-id owncloud
 # Swich numlock on
 exec --no-startup-id numlockx on
 # Use Synapse to start programms way faster than dmenu
-exec --no-startup-id synapse -s
+# exec --no-startup-id synapse -s
 # Start Dropbox
 exec --no-startup-id dropbox start
 # Run XAutoLock
