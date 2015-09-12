@@ -1,10 +1,11 @@
 *
 !/.gitignore.d
 !/.gitignore.d/i3
-!/.i3status.conf
 !/.i3
 !/.i3/config
+!/.i3/i3lock-color
+!/.i3/i3lock-fancy
 !/.i3/i3-xprop.sh
 !/.i3/lockscreen.png
-!/.i3/swap-workspace.py
+!/.i3status.conf
 !/.i3/xrandr.sh

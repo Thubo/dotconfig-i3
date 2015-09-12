@@ -55,7 +55,8 @@ exec --no-startup-id synapse -s
 exec --no-startup-id dropbox start
 # Run XAutoLock
 # exec --no-startup-id xautolock -locker 'i3lock -d -c 909090' -time 15
-exec --no-startup-id xautolock -locker 'i3lock -d -i /home/mt/.i3/lockscreen.png' -time 15
+# exec --no-startup-id xautolock -locker 'i3lock -d -i /home/mt/.i3/lockscreen.png' -time 15
+exec --no-startup-id xautolock -locker '~/.i3/i3lock-fancy' -time 10
   # Run parcellite
 exec --no-startup-id parcellite
 # Start a terminal in ~/templates and move it to the scratchpad
