@@ -37,7 +37,7 @@ set $mod Mod4
 exec_always --no-startup-id ~/.i3/xrandr.sh
 # Start rofi
 # Switch between modi: Shift-Right
-exec_always --no-startup-id pkill rofi; rofi -key-run alt-space
+exec_always --no-startup-id pkill rofi; rofi -key-window alt-shift-space
 # Set Background to black
 # exec_always --no-startup-id xsetroot -solid "#000000"
 exec_always --no-startup-id sleep 2s && nitrogen --restore
@@ -50,7 +50,7 @@ exec --no-startup-id owncloud
 # Swich numlock on
 exec --no-startup-id numlockx on
 # Use Synapse to start programms way faster than dmenu
-# exec --no-startup-id synapse -s
+exec --no-startup-id synapse -s
 # Start Dropbox
 exec --no-startup-id dropbox start
 # Run XAutoLock
