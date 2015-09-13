@@ -46,7 +46,7 @@ exec_always --no-startup-id sleep 2s && nitrogen --restore
 # Set Keyboard to us and bind esc to caps
 exec_always --no-startup-id setxkbmap -model pc105 -layout us -variant altgr-intl -option caps:escape
 # Start daemon for touchpad control
-# exec --no-startup-id syndaemon -i 0.8 -d
+exec --no-startup-id syndaemon -i 0.5 -d
 # Network Manager
 exec --no-startup-id nm-applet
 # Owncloud Client
