@@ -24,21 +24,22 @@ set $mod Mod4
 # Execute commands at startup
 # Requires
 #  * dropbox
+#  * imagemagick
 #  * nitrogen
 #  * nm-applet
 #  * numlockx
 #  * owncloud
 #  * parcellite
-#  * xautolock
 #  * rofi
-#
+#  * scrot
+#  * xautolock
 # --------------------------------------------------------------------------- #
 # Put the screens where they belong
 exec_always --no-startup-id ~/.i3/xrandr.sh
 # Start rofi
 # Switch between modi: Shift-Right
 exec_always --no-startup-id pkill rofi; rofi -key-window alt-shift-space
-  # Setup Screen
+# Setup Screen
 # exec_always --no-startup-id xrandr --output eDP1 --auto --primary --output HDMI1 --auto --right-of eDP1
 # Set Background to black
 # exec_always --no-startup-id xsetroot -solid "#000000"
@@ -59,10 +60,16 @@ exec --no-startup-id synapse -s
 exec --no-startup-id dropbox start
 # Run XAutoLock
 # exec --no-startup-id xautolock -locker 'i3lock -d -c 909090' -time 15
-exec --no-startup-id xautolock -locker 'i3lock -d -i /home/mt/.i3/lockscreen.png' -time 15
+# exec --no-startup-id xautolock -locker 'i3lock -d -i /home/mt/.i3/lockscreen.png' -time 15
+exec --no-startup-id xautolock -locker '~/.i3/i3lock-fancy' -time 10
 # Run parcellite
 exec --no-startup-id parcellite
 # Scratchpads
+# exec --no-startup-id xautolock -locker 'i3lock -d -i /home/mt/.i3/lockscreen.png' -time 15
+exec --no-startup-id xautolock -locker '~/.i3/i3lock-fancy' -time 10
+# Run parcellite
+exec --no-startup-id parcellite
+# Start a terminal in ~/templates and move it to the scratchpad
 exec --no-startup-id terminator -T "Scratchpad F1" --working-dir=~/
 exec --no-startup-id terminator -T "Scratchpad F2" --working-dir=~/
 exec --no-startup-id terminator -T "Scratchpad F3" --working-dir=~/
