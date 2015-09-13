@@ -43,9 +43,9 @@ exec_always --no-startup-id pkill rofi; rofi -key-window alt-shift-space
 # exec_always --no-startup-id xrandr --output eDP1 --auto --primary --output HDMI1 --auto --right-of eDP1
 # Set Background to black
 # exec_always --no-startup-id xsetroot -solid "#000000"
-exec_always --no-startup-id sleep 2s && nitrogen --restore
+# exec_always --no-startup-id sleep 2s && nitrogen --restore
 # Set Keyboard to us and bind esc to caps
-exec_always --no-startup-id setxkbmap -model pc105 -layout us -variant altgr-intl -option caps:escape
+exec_always --no-startup-id sleep 5s && setxkbmap -model pc105 -layout us -variant altgr-intl -option caps:escape
 # Start daemon for touchpad control
 exec --no-startup-id syndaemon -i 0.5 -d
 # Network Manager
