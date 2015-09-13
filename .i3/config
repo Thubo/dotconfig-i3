@@ -65,10 +65,6 @@ exec --no-startup-id xautolock -locker '~/.i3/i3lock-fancy' -time 10
 # Run parcellite
 exec --no-startup-id parcellite
 # Scratchpads
-# exec --no-startup-id xautolock -locker 'i3lock -d -i /home/mt/.i3/lockscreen.png' -time 15
-exec --no-startup-id xautolock -locker '~/.i3/i3lock-fancy' -time 10
-# Run parcellite
-exec --no-startup-id parcellite
 # Start a terminal in ~/templates and move it to the scratchpad
 exec --no-startup-id terminator -T "Scratchpad F1" --working-dir=~/
 exec --no-startup-id terminator -T "Scratchpad F2" --working-dir=~/
