@@ -115,6 +115,8 @@ for_window [title="^Redirection Viewer*"] floating enable
 for_window [class="Shutter"] floating enable
 # AudioMixer
 for_window [class="Xfce4-mixer"] floating enable, move position center
+# Tabs Outliner
+for_window [title="^Tabs Outliner" window_role="pop-up"] floating enable, border 2px
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
