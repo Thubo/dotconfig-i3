@@ -8,7 +8,7 @@
 IMAGE=/tmp/i3lock.png
 
 # All options are here: http://www.imagemagick.org/Usage/blur/#blur_args
-BLURTYPE="0x8" # 7.52s
+#BLURTYPE="0x8" # 7.52s
 #BLURTYPE="0x5" # 7.52s
 #BLURTYPE="0x2" # 4.39s
 #BLURTYPE="5x3" # 3.80s
@@ -18,12 +18,11 @@ BLURTYPE="0x8" # 7.52s
 scrot $IMAGE
 
 convert $IMAGE \
-	-level 0%,100%,0.6 \
-	-blur $BLURTYPE \
-	-font Liberation-Sans \
-	-pointsize 26 \
-	-fill white \
-	-gravity center \
+  -filter Gaussian \
+  -resize 50% \
+  -define \
+    filter:sigma=3.10 \
+  -resize 200% \
   $IMAGE
 
 ~/.i3/i3lock-color \

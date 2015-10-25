@@ -39,11 +39,8 @@ exec_always --no-startup-id ~/.i3/xrandr.sh
 # Start rofi
 # Switch between modi: Shift-Right
 exec_always --no-startup-id pkill rofi; rofi -key-window alt-shift-space
-# Setup Screen
-# exec_always --no-startup-id xrandr --output eDP1 --auto --primary --output HDMI1 --auto --right-of eDP1
 # Set Background to black
-# exec_always --no-startup-id xsetroot -solid "#000000"
-# exec_always --no-startup-id sleep 2s && nitrogen --restore
+exec_always --no-startup-id xsetroot -solid "#000000"
 # Set Keyboard to us and bind esc to caps
 exec_always --no-startup-id sleep 5s && setxkbmap -model pc105 -layout us -variant altgr-intl -option caps:escape
 # Start daemon for touchpad control
@@ -59,8 +56,6 @@ exec --no-startup-id synapse -s
 # Start Dropbox
 exec --no-startup-id dropbox start
 # Run XAutoLock
-# exec --no-startup-id xautolock -locker 'i3lock -d -c 909090' -time 15
-# exec --no-startup-id xautolock -locker 'i3lock -d -i /home/mt/.i3/lockscreen.png' -time 15
 exec --no-startup-id xautolock -locker '~/.i3/i3lock-fancy' -time 10
 # Run parcellite
 exec --no-startup-id parcellite
@@ -72,12 +67,7 @@ exec --no-startup-id terminator -T "Scratchpad F3" --working-dir=~/
 exec --no-startup-id terminator -T "Scratchpad F4" --working-dir=~/
 for_window [class="^Terminator$" title="^Scratchpad"] move scratchpad
 
-# Binds for programms
-# --------------------------------------------------------------------------- #
-# Rerun the xrandr script
-bindsym Mod1+ctrl+x exec ~/Templates/scripts/src/xrandr.sh
-
-# Windowsettings
+# Window settings
 # --------------------------------------------------------------------------- #
 # Spotify
 for_window [class="^Spotify$"] floating disable, border none, move workspace media
@@ -109,8 +99,6 @@ for_window [title="^Pocket" window_role="pop-up"] floating enable, border none
 # IPMI View
 for_window [title="^Java iKVM*"] floating enable
 for_window [title="^Redirection Viewer*"] floating enable
-# Pidgin
-# for_window [instance="^Pidgin"] move workspace chat
 # Shutter
 for_window [class="Shutter"] floating enable
 # AudioMixer
@@ -128,19 +116,20 @@ for_window [title="^Tabs Outliner" window_role="pop-up"] floating enable, border
 # chose a FreeType font, such as:
 font pango:DejaVu Sans Mono 10
 
-# Suspend via alt+ctrl+shift+l
-bindsym Mod1+ctrl+shift+l exec xautolock -locknow && sudo pm-suspend
-# lock via alt+ctrl+l
-bindsym Mod1+ctrl+l exec xautolock -locknow
-
-# Reload keyboard layout
-bindsym $mod+Shift+w exec setxkbmap -model pc105 -layout us -variant altgr-intl -option caps:escape
-
 # Switch back and forth between workspaces
 workspace_auto_back_and_forth yes
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
+
+# --------------------------------------------------------------------------- #
+# Reload keyboard layout
+bindsym $mod+Shift+w exec setxkbmap -model pc105 -layout us -variant altgr-intl -option caps:escape
+
+# Suspend via alt+ctrl+shift+l
+bindsym Mod1+ctrl+shift+l exec xautolock -locknow && sudo pm-suspend
+# lock via alt+ctrl+l
+bindsym Mod1+ctrl+l exec xautolock -locknow
 
 # start a terminal
 bindsym $mod+Return exec TERMINAL=terminator i3-sensible-terminal
@@ -333,7 +322,7 @@ bar {
 	#mode hide
   #hidden_state hide
   #modifier $mod
-  #tray_output primary
+  tray_output primary
   status_command i3status
   position top
 }
