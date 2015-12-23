@@ -25,7 +25,6 @@ set $mod Mod4
 # Requires
 #  * dropbox
 #  * imagemagick
-#  * nitrogen
 #  * nm-applet
 #  * numlockx
 #  * owncloud
