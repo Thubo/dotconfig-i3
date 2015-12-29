@@ -37,7 +37,7 @@ set $mod Mod4
 exec_always --no-startup-id ~/.i3/xrandr.sh
 # Start rofi
 # Switch between modi: Shift-Right
-exec_always --no-startup-id pkill rofi; rofi -key-window alt-shift-space
+exec_always --no-startup-id pkill rofi; rofi -key-ssh F12 -key-window alt-shift-space
 # Set Background to black
 exec_always --no-startup-id xsetroot -solid "#000000"
 # Set Keyboard to us and bind esc to caps
@@ -59,7 +59,7 @@ exec --no-startup-id xautolock -locker '~/.i3/i3lock-fancy' -time 10
 # Run parcellite
 exec --no-startup-id parcellite
 # Run gnome settings daemon
-exec_always --no-startup-id gnome-settings-daemon
+exec_always --no-startup-id pkill gnome-settings-daemon && gnome-settings-daemon
 # Scratchpads
 # Start a terminal in ~/templates and move it to the scratchpad
 exec --no-startup-id terminator -T "Scratchpad F1" --working-dir=~/
