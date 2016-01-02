@@ -105,7 +105,7 @@ for_window [class="Shutter"] floating enable
 # AudioMixer
 for_window [class="Xfce4-mixer"] floating enable, move position center
 # Tabs Outliner
-for_window [title="^Tabs Outliner" window_role="pop-up"] floating enable, border 2px
+# for_window [title="^Tabs Outliner" window_role="pop-up"] floating enable, border 2px
 # aRandR
 for_window [class="Arandr" instance="arandr"] floating enable, border none
 
