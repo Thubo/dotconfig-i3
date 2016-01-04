@@ -271,7 +271,7 @@ mode "resize" {
   bindsym Right resize grow width 75 px or 75 ppt
 
   # c will center the window
-  bindsym c move position center
+  bindsym c move position center ; mode "default"
 
   # back to normal: Enter or Escape
   bindsym Return mode "default"
