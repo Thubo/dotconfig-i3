@@ -37,7 +37,7 @@ set $mod Mod4
 exec_always --no-startup-id ~/.i3/xrandr.sh
 # Start rofi
 # Switch between modi: Shift-Right
-exec_always --no-startup-id pkill rofi; rofi -key-ssh F12 -key-window alt-shift-space
+exec_always --no-startup-id pkill rofi; rofi -key-ssh alt-shift-space -key-window alt-Tab
 # Set Background to black
 exec_always --no-startup-id xsetroot -solid "#000000"
 # Set Keyboard to us and bind esc to caps
