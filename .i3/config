@@ -293,7 +293,7 @@ mode "command" {
   bindsym m exec i3-input -F 'move workspace to output %s' -P 'left/right: '; mode "default"
 
   # Move current window to workspace
-  bindsym Shift+m exec i3-input -F 'move workspace %s' -P 'Name of target workspace: ';
+  bindsym Shift+m exec i3-input -F 'move workspace %s' -P 'Name of target workspace: '; mode "default"
 
   # Go to workspace by name
   bindsym g exec i3-input -F 'workspace %s' -P 'Go to workspace: '; mode "default"
