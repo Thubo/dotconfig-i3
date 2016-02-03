@@ -62,10 +62,7 @@ exec --no-startup-id parcellite
 exec_always --no-startup-id pkill gnome-settings-daemon && gnome-settings-daemon
 # Scratchpads
 # Start a terminal in ~/templates and move it to the scratchpad
-exec --no-startup-id terminator -T "Scratchpad F1" --working-dir=~/
-exec --no-startup-id terminator -T "Scratchpad F2" --working-dir=~/
-exec --no-startup-id terminator -T "Scratchpad F3" --working-dir=~/
-exec --no-startup-id terminator -T "Scratchpad F4" --working-dir=~/
+exec --no-startup-id terminator --title "Scratchpad" --working-dir=~/ --execute tmux
 for_window [class="^Terminator$" title="^Scratchpad"] move scratchpad
 
 # Window settings
@@ -145,10 +142,7 @@ bindsym $mod+Shift+minus move scratchpad
 
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
-bindsym $mod+F1 [class="^Terminator$" title="^Scratchpad F1"] scratchpad show
-bindsym $mod+F2 [class="^Terminator$" title="^Scratchpad F2"] scratchpad show
-bindsym $mod+F3 [class="^Terminator$" title="^Scratchpad F3"] scratchpad show
-bindsym $mod+F4 [class="^Terminator$" title="^Scratchpad F4"] scratchpad show
+bindsym $mod+F1 [class="^Terminator$" title="^Scratchpad"] scratchpad show
 
 # change focus
 bindsym $mod+h focus left
