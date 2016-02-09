@@ -62,7 +62,7 @@ exec --no-startup-id parcellite
 exec_always --no-startup-id pkill gnome-settings-daemon && gnome-settings-daemon
 # Scratchpads
 # Start a terminal in ~/templates and move it to the scratchpad
-exec --no-startup-id terminator --title "Scratchpad" --working-dir=~/ --execute tmux
+exec --no-startup-id terminator --title "Scratchpad" --working-dir=~/ --execute tmux -2 -u
 for_window [class="^Terminator$" title="^Scratchpad"] move scratchpad
 
 # Window settings
