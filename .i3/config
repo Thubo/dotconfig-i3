@@ -176,7 +176,7 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
+# bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
@@ -197,6 +197,9 @@ bindsym $mod+shift+Tab focus child
 
 # Toggle workspaces
 bindsym $mod+d workspace back_and_forth
+
+# Select workspace
+bindsym $mod+s exec ~/.i3/i3_switch_workspace.sh
 
 # Next Workspace
 bindsym $mod+n workspace next_on_output
